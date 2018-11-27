@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:stella="http://stella.caelum.com.br/faces">
+
+
+<p:panel header="Cadastro de Professores" style="width:60%;"
+	rendered="#{professorBean.professor != null}" id="lista-professor-panel">
+	<p:panelGrid columns="2">
+		
+	
+		<h:outputText value="Nome: " />
+		<p:inputText value="#{professorBean.professor.nome}" size="30" />
+		<h:outputText value="Data de Nascimento" />
+		<p:calendar value="#{professorBean.professor.dataNascimento}"
+			pattern="dd/MM/yyyy " size="10"
+			navigator="true" yearRange="1950:2030" />
+		<h:outputText value="Cpf: " />
+		<p:inputMask value="#{professorBean.professor.cpf}" mask="999.999.999-99"
+			size="16"   id="validator" required="true" requiredMessage="CPF Obrigatorio" />
+		<h:outputText value="Email: " />
+		<p:inputText value="#{professorBean.professor.email}" size="22" />
+		<h:outputText value="Telefone: " />
+		<p:inputMask value="#{professorBean.professor.telefone}" mask="(99)9?99999999"
+			size="16" />
+		<h:outputText value="Ativo" />
+		<p:selectBooleanCheckbox value="#professorBean.professor.ativo}" />
+	</p:panelGrid>
+	<p:commandButton value="Salvar" icon="salvar-icon"
+		action="#{professorBean.salvar}" update="professor_form" />
+	<p:commandButton value="Voltar" icon="voltar-icon" immediate="true"
+		update="professor_form" action="#{professorBean.voltar}" />
+
+</p:panel>
+</html>

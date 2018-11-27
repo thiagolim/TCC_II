@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	
+<head>
+
+<title>Login</title>
+</head>
+<body>
+
+	<h:form id="formLogin" style="margin-top:18%; margin-left:40%">
+		<h1>Realize o Login</h1>
+		
+		<h:panelGrid columns="2">
+		
+		<h:outputLabel value="Login:"/>
+		<h:inputText value="#{pessoaBean.pessoa.login}"/>
+		
+		<h:outputLabel value="Senha:"/>
+		<h:inputSecret value="#{pessoaBean.pessoa.senha}" />
+		
+		<h:commandButton  value="Acessar" action="#{pessoaBean.logar}"/>
+		
+		
+		</h:panelGrid>
+		
+	
+	</h:form>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<p:panel header="Lista da Matrículas"
+	rendered="#{matriculaBean.matricula == null}" style="width:80%">
+
+	<p:commandButton value="Nova Matricula"
+		action="#{matriculaBean.novaMatricula}" update="matricula_form"
+		icon="novo-icon" />
+
+
+	<p:dataTable value="#{matriculaBean.matriculas}" var="matricula"
+		style="margin-top:10px; width:100%" id="tabela-matriculas"
+		emptyMessage="Nenhuma matrícula cadastrada">
+
+		<p:column headerText="Número" width="40" style="text-align:center;">
+
+			<h:outputText value="#{matricula.numero}" />
+
+		</p:column>
+
+		<p:column headerText="Aluno" width="220" style="text-align:center;">
+
+			<h:outputText value="#{matricula.aluno.nome}" />
+
+		</p:column>
+
+		<p:column headerText="Curso" width="120" style="text-align:center;">
+
+			<h:outputText value="#{matricula.curso.nome}" />
+
+		</p:column>
+
+		<p:column headerText="Data" sortBy="#{matricula.dataCriacao}"
+			width="80" style="text-align:center;">
+			<h:outputFormat value="#{matricula.dataMatricula}">
+				<f:convertDateTime pattern="dd/MM/yyyy" />
+			</h:outputFormat>
+
+		</p:column>
+
+		<p:column width="50" style="text-align:center">
+
+			<p:commandButton icon="editar-icon"
+				action="#{matriculaBean.editar(matricula)}" update=":matricula_form" />
+			<p:commandButton icon="excluir-icon"
+				action="#{matriculaBean.excluir(matricula)}"
+				style="color:red; margin-left:20px;" update="@form" />
+
+		</p:column>
+
+	</p:dataTable>
+	<br />
+
+</p:panel>
+
+
+
+</html>

@@ -1,0 +1,14 @@
+.salvar-icon{background: url("icons/salvar2.png") !important;}
+.voltar-icon{background: url("icons/voltar.png") !important;}
+.novo-icon{background: url("icons/novo.png") !important;}
+.editar-icon{background: url("icons/editar.png") !important;}
+.excluir-icon{background: url("icons/excluir.png") !important;}
+.cancelar-icon{background: url("icons/cancelar.png") !important;}
+
+.ui-growl{
+
+	top: 10%;
+
+	left: 40%;
+
+}

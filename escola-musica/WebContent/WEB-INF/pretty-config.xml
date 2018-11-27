@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<pretty-config
+	xmlns="http://ocpsoft.com/prettyfaces/3.3.3"
+
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+	xsi:schemaLocation="http://ocpsoft.com/prettyfaces/3.3.3
+
+   http://ocpsoft.com/xml/ns/prettyfaces/ocpsoft-pretty-faces-3.3.3.xsd">
+
+
+
+
+
+	<url-mapping id="cursoaccordion">
+
+		<pattern value="/curso/accordion/" />
+
+		<view-id value="/curso_accordion.jsf" />
+
+		<action onPostback="false">#{cursoBean.iniciarBean}</action>
+
+	</url-mapping>
+
+
+
+	<url-mapping id="cursomanutencao">
+
+		<pattern value="/curso/manutencao/" />
+
+		<view-id value="/pages/cursos/curso_wrapper.jsf" />
+
+		<action onPostback="false">#{cursoBean.iniciarBean}</action>
+
+	</url-mapping>
+
+
+
+	<url-mapping id="alunomanutencao">
+
+		<pattern value="/aluno/manutencao/" />
+
+		<view-id value="/pages/alunos/aluno_wrapper.jsf" />
+
+		<action onPostback="false">#{alunoBean.iniciarBean}</action>
+
+	</url-mapping>
+		
+	
+	<url-mapping id="professormanutencao">
+
+		<pattern value="/professor/manutencao/" />
+
+		<view-id value="/pages/professores/professor_wrapper.jsf" />
+
+		<action onPostback="false">#{professorBean.iniciarBean}</action>
+
+	</url-mapping>
+		
+
+
+	<url-mapping id="matriculamanutencao">
+
+		<pattern value="/matricula/manutencao/" />
+
+		<view-id value="/pages/matriculas/matricula_wrapper.jsf" />
+
+		<action onPostback="false">#{matriculaBean.iniciarBean}</action>
+
+	</url-mapping>
+
+
+	<url-mapping id="relatoriosmanutencao">
+
+		<pattern value="/relatorio/manutencao/" />
+
+		<view-id value="/pages/relatorios/relatorio_wrapper.jsf" />
+
+		
+	</url-mapping>
+
+
+</pretty-config>

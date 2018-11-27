@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<ui:composition template="/pages/layout/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:stella="http://stella.caelum.com.br/faces">
+
+	<ui:define name="titulo">Relatorios</ui:define>
+	<ui:define name="principal">
+		<h:form id="relatorio_form">
+			<p:growl />
+
+			
+			<p:panel header="Escolha o Relatório" style="width:80%;">
+			
+				
+			<p:commandButton value="Cursos" ajax="false" action="#{servletDownloadCurso.download}" 
+			 onclick="this.form.target='_blank'" style="width:100px; margin-right:5px;"   ></p:commandButton>
+			
+			<p:commandButton value="Alunos" ajax="false" action="#{servletDownloadAluno.download}" 
+			 onclick="this.form.target='_blank'" style="width:100px;  margin-right:5px;"   ></p:commandButton>
+			 
+			 <p:commandButton value="Professores" ajax="false" action="#{servletDownloadProfessor.download}" 
+			 onclick="this.form.target='_blank'" style="width:100px;  margin-right:5px;"   ></p:commandButton>
+			 
+			 <p:commandButton value="Matriculas" ajax="false" action="#{servletDownloadMatricula.download}" 
+			 onclick="this.form.target='_blank'" style="width:100px;  margin-right:5px;"   ></p:commandButton>
+			
+			</p:panel>
+			
+			
+			
+		</h:form>
+
+	</ui:define>
+
+</ui:composition>

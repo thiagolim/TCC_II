@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+
+	<p:panel header="Cursos Cadastrados" style="width:80%;"
+				rendered="#{cursoBean.curso == null}">
+
+		<p:commandButton icon="novo-icon" value="Novo Curso" action="#{cursoBean.novoCurso}" 
+		update="@form"/>
+		<br /><br /> 
+			
+			<p:dataTable value="#{cursoBean.cursos}" var="curso" paginator="true" filteredValue="#{cursoBean.cursosFiltrados}"
+				rows="5" rowsPerPageTemplate="5, 10, 15" id="tabela-cursos" emptyMessage="Nenhum curso cadastrado">
+
+				<p:column headerText="Nome" style="width:300px; text-align:center;"
+					sortBy="#{curso.nome}">
+					<h:outputText value="#{curso.nome}" />
+					<f:facet name="header">
+						<h:outputText value="Nome"></h:outputText>
+					</f:facet>
+
+				</p:column>
+
+				<p:column headerText="Duração" style="width:70px;  text-align:center;">
+					<h:outputFormat value="#{curso.duracao}" />
+				</p:column>
+
+				<p:column headerText="Tipo" sortBy="#{curso.tipo}"  style="text-align:center;">
+					<h:outputFormat value="#{curso.tipo.label}" />
+				</p:column>
+
+				<p:column headerText="Data Criação" sortBy="#{curso.dataCriacao}" style="text-align:center;" >
+					<h:outputFormat value="#{curso.dataCriacao}" >
+						<f:convertDateTime pattern="dd/MM/yyyy" />
+					</h:outputFormat>
+				</p:column>
+
+				<p:column style="text-align:center; width:100px;" exportable="false">
+					<p:commandButton icon="editar-icon" action="#{cursoBean.editar(curso)}"
+						style="color:blue;" update=":curso_form" />
+
+					<p:commandButton icon="excluir-icon" action="#{cursoBean.excluir(curso)}"
+						style="color:red; margin-left:20px;" update="@form" />
+				</p:column>
+
+			</p:dataTable>
+			
+
+	
+	</p:panel>
+
+
+</html>
